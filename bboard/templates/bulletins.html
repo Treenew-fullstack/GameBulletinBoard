@@ -1,0 +1,33 @@
+{% extends 'default.html' %}
+
+{% block title %}
+    Объявления
+{% endblock title %}
+
+{% block content %}
+
+    {% if bulletins %}
+       <table>
+           <tr>
+               <td>Автор</td>
+               <td>Категория</td>
+               <td>Название</td>
+           </tr>
+           {% for bulletin in bulletins %}
+           <tr>
+               <td>{{ bulletin.author }}</td>
+               <td>{{ bulletin.category }}</td>
+               <td>{{ bulletin.title }}</td>
+
+           </tr>
+           {% endfor %}
+       </table>
+    {% else %}
+       <h2>Объявлений нет!</h2>
+    {% endif %}
+
+{% endblock content %}
+
+
+
+

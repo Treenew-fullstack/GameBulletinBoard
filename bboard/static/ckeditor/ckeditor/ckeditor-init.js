@@ -1,0 +1,1 @@
+CKEDITOR_BASEPATH = "C:/static/ckeditor/ckeditor/"
