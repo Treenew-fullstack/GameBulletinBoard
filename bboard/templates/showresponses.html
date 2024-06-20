@@ -1,0 +1,38 @@
+{% extends 'default.html' %}
+
+{% block title %}
+    Отклики
+{% endblock title %}
+
+{% block content %}
+
+    <form method="GET">
+        {{ filter.form }}
+        <input  type="submit" value="Найти">
+    </form>
+
+    {% for r in filter.qs %}
+
+        {% if r.bulletins.author == user %}
+            <div>
+                <hr>
+                {{ r }}
+                <br>
+                {% if not r.accepted %}
+                    <span>Отклик не обработан!</span>
+                    <a href="{% url 'socproject:acceptresponse' r.id %}">
+                        Принять
+                    </a>
+                {% else %}
+                    <span>Принято!</span>
+                {% endif %}
+                <a href="{% url 'socproject:rejectresponse' r.id %}">
+                    Отклонить
+                </a>
+                <hr>
+            </div>
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock content %}
