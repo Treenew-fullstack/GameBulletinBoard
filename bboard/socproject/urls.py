@@ -10,6 +10,7 @@ urlpatterns = [
     path('<int:pk>/edit', BulletinEditView.as_view(), name='bulletinedit'),
     path('<int:pk>/delete', BulletinDeleteView.as_view(), name='bulletindelete'),
     path('showresponses', ResponsesListView.as_view(), name='showresponses'),
-    path('acceptresponse/<int:pk>', acceptresponse, name='accept_reply'),
+    path('acceptresponse/<int:pk>', acceptresponse, name='acceptresponse'),
+    path('rejectresponse/<int:pk>', rejectresponse, name='rejectresponse')
 ]
 

@@ -11,22 +11,22 @@
         <input  type="submit" value="Найти">
     </form>
 
-    {% for r in filter.qs %}
+    {% for res in filter.qs %}
 
-        {% if r.bulletins.author == user %}
+        {% if res.bulletins.author == user %}
             <div>
                 <hr>
                 {{ r }}
                 <br>
-                {% if not r.accepted %}
+                {% if not res.accepted %}
                     <span>Отклик не обработан!</span>
-                    <a href="{% url 'socproject:acceptresponse' r.id %}">
+                    <a href="{% url 'socproject:acceptresponse' res.id %}">
                         Принять
                     </a>
                 {% else %}
                     <span>Принято!</span>
                 {% endif %}
-                <a href="{% url 'socproject:rejectresponse' r.id %}">
+                <a href="{% url 'socproject:rejectresponse' res.id %}">
                     Отклонить
                 </a>
                 <hr>

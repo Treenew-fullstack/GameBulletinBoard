@@ -45,7 +45,7 @@ class BulletinDeleteView(LoginRequiredMixin, DeleteView):
 class ResponsesListView(LoginRequiredMixin, ListView):
     model = Responses
     template_name = 'showresponses.html'
-    context_object_name = 'replies'
+    context_object_name = 'responses'
 
     def get_queryset(self):
         return super().get_queryset().filter(respbulletins_id__author_id=self.request.user)
