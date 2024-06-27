@@ -18,8 +18,7 @@
     {% endif %}
 
     {% for resp in response %}
-
-        {% if resp.responses.author == user %}
+        {% if resp.author == user %}
             <div>
                 <hr>
                 {{ resp }}
