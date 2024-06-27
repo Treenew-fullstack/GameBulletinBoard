@@ -30,5 +30,5 @@ class Responses(models.Model):
     status = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.respbulletins} ==> {self.author}: {self.text}'
+        return self.text
 

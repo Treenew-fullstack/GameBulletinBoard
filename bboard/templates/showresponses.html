@@ -5,34 +5,41 @@
 {% endblock title %}
 
 {% block content %}
-
-    <form method="GET">
+<h2>Личный кабинет {{ request.user.username }}</h2>
+    <form action="" method="GET">
         {{ filter.form }}
         <input  type="submit" value="Найти">
     </form>
+<h4>Отклики</h4>
+    {% if filter.qs %}
+        {% for resp in response %}
+        <p> {{ resp.text }} </p>
+        {% endfor %}
+    {% endif %}
 
-    {% for res in filter.qs %}
+    {% for resp in response %}
 
-        {% if res.bulletins.author == user %}
+        {% if resp.responses.author == user %}
             <div>
                 <hr>
-                {{ r }}
+                {{ resp }}
                 <br>
-                {% if not res.accepted %}
+                {% if not resp.status %}
                     <span>Отклик не обработан!</span>
-                    <a href="{% url 'socproject:acceptresponse' res.id %}">
+                    <a href="{% url 'socproject:acceptresponse' resp.id %}">
                         Принять
                     </a>
                 {% else %}
                     <span>Принято!</span>
                 {% endif %}
-                <a href="{% url 'socproject:rejectresponse' res.id %}">
-                    Отклонить
+                <a href="{% url 'socproject:rejectresponse' resp.id %}" >
+                    Удалить
                 </a>
                 <hr>
             </div>
         {% endif %}
 
     {% endfor %}
+
 
 {% endblock content %}
