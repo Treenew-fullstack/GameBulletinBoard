@@ -21,13 +21,9 @@
             </tr>
         </table>
 
-{% if user == user.is_authenticated %}
-     <form method="POST">
-            {% csrf_token %}
-            <div>
-                {{ form.as_table }}
-                <input type="submit" value="Отправить отклик">
-            </div>
-        </form>
-    {% endif %}
+
+<a href="{% url 'socproject:respcreate' bulletin.id %}"> Оставить отклик </a>
+
+
+
 {% endblock content %}

@@ -20,7 +20,7 @@ class BulletinsListView(ListView):
 
 
 class BulletinDetailView(DetailView):
-    model = ResponseForm
+    model = Bulletins
     template_name = 'bulletindetail.html'
     context_object_name = 'bulletin'
 
@@ -58,6 +58,13 @@ class ResponsesListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['filter'] = self.filterset
         return context
+
+
+class ResponseCreateView(LoginRequiredMixin, CreateView):
+    form = ResponseForm
+    model = Responses
+    template_name = 'responsecreate.html'
+    context_object_name = 'respcreate'
 
 
 def acceptresponse(*args, **kwargs):
