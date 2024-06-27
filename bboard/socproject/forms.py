@@ -1,7 +1,5 @@
 from django import forms
-from allauth.account.forms import SignupForm
-from django.contrib.auth.models import Group
-from django.core.mail import EmailMultiAlternatives
+from ckeditor.widgets import CKEditorWidget
 
 from .models import Bulletins, Responses
 
@@ -16,8 +14,12 @@ class BulletinForm(forms.ModelForm):
             'text',
 
         ]
+        widgets = {
+            'content': forms.CharField(widget=CKEditorWidget()),
+        }
 
-class ReplyForm(forms.ModelForm):
+
+class ResponseForm(forms.ModelForm):
     class Meta:
         model = Responses
         fields = ['text', ]

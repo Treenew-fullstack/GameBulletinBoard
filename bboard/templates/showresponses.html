@@ -24,7 +24,6 @@
                 {{ resp }}
                 <br>
                 {% if not resp.status %}
-                    <span>Отклик не обработан!</span>
                     <a href="{% url 'socproject:acceptresponse' resp.id %}">
                         Принять
                     </a>

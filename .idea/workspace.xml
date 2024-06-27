@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93fc9b6d-a5fc-4278-8fb2-349480a0b9b7" name="Changes" comment="Responses1" />
+    <list default="true" id="93fc9b6d-a5fc-4278-8fb2-349480a0b9b7" name="Changes" comment="ResponsesEnd" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +89,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719474334153</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ResponsesEnd">
+      <option name="closed" value="true" />
+      <created>1719474662136</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719474662136</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -97,6 +105,7 @@
     <MESSAGE value="First" />
     <MESSAGE value="Responses" />
     <MESSAGE value="Responses1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Responses1" />
+    <MESSAGE value="ResponsesEnd" />
+    <option name="LAST_COMMIT_MESSAGE" value="ResponsesEnd" />
   </component>
 </project>

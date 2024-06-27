@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Bulletins, Responses
-from .forms import BulletinForm
+from .forms import BulletinForm, ResponseForm
 from .filters import ResponsesFilter
 
 
@@ -20,7 +20,7 @@ class BulletinsListView(ListView):
 
 
 class BulletinDetailView(DetailView):
-    model = Bulletins
+    model = ResponseForm
     template_name = 'bulletindetail.html'
     context_object_name = 'bulletin'
 
