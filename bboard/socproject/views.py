@@ -10,6 +10,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Bulletins, Responses
 from .forms import BulletinForm, ResponseForm
 from .filters import ResponsesFilter
+from .tasks import accept_response_message
 
 
 class BulletinsListView(ListView):
@@ -61,17 +62,17 @@ class ResponsesListView(LoginRequiredMixin, ListView):
 
 
 class ResponseCreateView(LoginRequiredMixin, CreateView):
-    form = ResponseForm
     model = Responses
+    form_class = ResponseForm
     template_name = 'responsecreate.html'
     context_object_name = 'respcreate'
 
 
 def acceptresponse(*args, **kwargs):
-    reply = Responses.objects.get(id=kwargs.get('pk'))
-    reply.accepted = True
-    reply.save()
-    #notify_accept_reply(reply.id)
+    response = Responses.objects.get(id=kwargs.get('pk'))
+    response.status = True
+    response.save()
+    accept_response_message(response.id)
     return redirect('socproject:showresponses')
 
 def rejectresponse(*args, **kwargs):
