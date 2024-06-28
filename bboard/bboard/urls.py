@@ -22,4 +22,5 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('socproject.urls', namespace='socproject')),
     path('accounts/', include('allauth.urls')),
+    path('accounts/profile/', include('socproject.urls')),
 ]

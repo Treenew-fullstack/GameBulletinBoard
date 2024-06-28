@@ -1,6 +1,4 @@
-from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
 from django.urls import reverse_lazy
 
 from django.shortcuts import redirect
@@ -10,7 +8,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Bulletins, Responses
 from .forms import BulletinForm, ResponseForm
 from .filters import ResponsesFilter
-from .tasks import accept_response_message
+from .tasks import create_new_response, accept_response_message
 
 
 class BulletinsListView(ListView):
@@ -67,6 +65,14 @@ class ResponseCreateView(LoginRequiredMixin, CreateView):
     template_name = 'responsecreate.html'
     context_object_name = 'respcreate'
 
+    def form_valid(self, form):
+        response = form.save(commit=False)
+        response.author = User.objects.get(id=self.request.user.id)
+        response.respbulletins = Bulletins.objects.get(id=self.kwargs.get('pk'))
+        response.save()
+        create_new_response(response.id)
+        return redirect('socproject:bulletins')
+
 
 def acceptresponse(*args, **kwargs):
     response = Responses.objects.get(id=kwargs.get('pk'))
@@ -75,9 +81,8 @@ def acceptresponse(*args, **kwargs):
     accept_response_message(response.id)
     return redirect('socproject:showresponses')
 
+
 def rejectresponse(*args, **kwargs):
     response = Responses.objects.get(id=kwargs.get('pk'))
     response.delete()
     return redirect('socproject:showresponses')
-
-

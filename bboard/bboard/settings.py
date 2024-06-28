@@ -147,3 +147,44 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Добавлено для работы с allauth
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# Определение обязательных и необязательных полей для регистрации и авторизации
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+
+# Добавление провайдера для реализации OAuth
+SOCIALACCOUNT_PROVIDERS = {
+    'yandex': {
+        'APP': {
+            'client_id': 'd99dcb220ab14d4c95c1e497e0f7f6f7',
+            'secret': '2e6dcc3916384a6497f2cfb938d563ce',
+            'key': '',
+        }
+    }
+}
+
+# Настройка почты для рассылок
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'treenew2@yandex.ru'
+EMAIL_HOST_PASSWORD = 'hrdazuelghbwgqyc'
+EMAIL_USE_SSL = 'True'
+DEFAULT_FROM_EMAIL = 'treenew2@yandex.ru'
+SERVER_EMAIL = 'treenew2@yandex.ru'
+
+# Планировщик
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25
