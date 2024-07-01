@@ -5,25 +5,27 @@
 {% endblock title %}
 
 {% block content %}
+
     <hr>
-        <table>
-            <tr>
-                <td> Заголовок </td>
-                <td> Категория </td>
-                <td> Текст статьи </td>
-            </tr>
-
-            <tr>
-                <td>{{ bulletin.title }}</td>
-                <td>{{ bulletin.category }}</td>
-                <td>{{ bulletin.text }}</td>
-
-            </tr>
-        </table>
-
-
-<a href="{% url 'socproject:respcreate' bulletin.id %}"> Оставить отклик </a>
-
+       <table style="height: 31px; margin-left: auto; margin-right: auto; width: 1800px;">
+           <tbody>
+               <tr>
+                   <td style="width: 300px; text-align: center;"> Заголовок </td>
+                   <td style="width: 300px; text-align: center;"> Категория </td>
+                   <td style="width: 600px; text-align: center;"> Объявление </td>
+               </tr>
+                 <tr>
+                     <td style="width: 300px; text-align: left;"> {{ bulletin.title }} </td>
+                     <td style="width: 300px; text-align: left;"> {{ bulletin.category }} </td>
+                     <td style="width: 600px; text-align: left;"> {{ bulletin.text }} </td>
+                     <td>
+                     <a href="{% url 'socproject:bulletinedit' pk=bulletin.id %}">Изменить</a>
+                     <a href="{% url 'socproject:bulletindelete' pk=bulletin.id %}">Удалить</a>
+                     <a href="{% url 'socproject:respcreate' bulletin.id %}"> Оставить отклик </a>
+                    </td>
+                </tr>
+           </tbody>
+       </table>
 
 
 {% endblock content %}

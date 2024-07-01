@@ -5,29 +5,44 @@
 {% endblock title %}
 
 {% block content %}
+   <h1>Все статьи</h1>
 
+    <hr>
     {% if bulletins %}
-       <table>
-           <tr>
-               <td>Автор</td>
-               <td>Категория</td>
-               <td>Название</td>
-           </tr>
-           {% for bulletin in bulletins %}
-           <tr>
-               <td>{{ bulletin.author }}</td>
-               <td>{{ bulletin.category }}</td>
-               <td>{{ bulletin.title }}</td>
-
-           </tr>
-           {% endfor %}
+       <table style="height: 31px; margin-left: auto; margin-right: auto; width: 1800px;">
+           <tbody>
+               <tr>
+                   <td style="width: 300px; text-align: center;"> Автор </td>
+                   <td style="width: 300px; text-align: center;"> Категория </td>
+                   <td style="width: 600px; text-align: center;"> Название </td>
+               </tr>
+         {% for bulletin in bulletins %}
+                 <tr>
+                     <td style="width: 300px; text-align: left;"> <a href="{% url 'socproject:bulletin' pk=bulletin.id %}">{{ bulletin.author }}</a> </td>
+                     <td style="width: 300px; text-align: left;"> <a href="{% url 'socproject:bulletin' pk=bulletin.id %}">{{ bulletin.category }}</a> </td>
+                     <td style="width: 600px; text-align: left;"> <a href="{% url 'socproject:bulletin' pk=bulletin.id %}"> {{ bulletin.text|truncatewords:5 }}</a> </td>
+                     <td>
+                     <a href="{% url 'socproject:bulletinedit' pk=bulletin.id %}">Изменить</a>
+                     <a href="{% url 'socproject:bulletindelete' pk=bulletin.id %}">Удалить</a>
+                    </td>
+                </tr>
+         {% endfor %}
+           </tbody>
        </table>
+
     {% else %}
-       <h2>Объявлений нет!</h2>
+            <h2>Новостей и статей нет!</h2>
     {% endif %}
+    <hr>
+        <table style="height: 31px; margin-left: auto; margin-right: auto; width: 1800px;">
+            <tr>
+                   <td> <a href="{% url 'socproject:showresponses' %}">Работа с откликами на объявления</a> </td>
+
+            </tr>
+        </table>
 
 {% endblock content %}
 
-
-
-
+<tr>
+                     <td style="width: 300px; text-align: center;"> <a href="{% url 'socproject:showresponses' pk=bulletin.id %}">Работа с откликами на объявления</a> </td>
+                 </tr>

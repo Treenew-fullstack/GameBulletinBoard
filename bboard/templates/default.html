@@ -1,14 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<head>
-    <title>{% block title %}{% endblock title %}</title>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>!</title>
+        {% load static %}
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
 
-<body>
-
-    {% block content %}{% endblock content %}
-
-</body>
+    </head>
+    <body>
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center mt-5">
+               <a href="{% url 'socproject:bulletins' %}">Главная</a><br>
+               <a href="{% url 'socproject:bulletincreate' %}">Создать объявление</a><br>
+                <a href="http://127.0.0.1:8000/accounts/">Вход и регистрация</a><br>
+               <p class="lead">{% block content %}{% endblock content %}</p>
+            </div>
+        </div>
+    </body>
 </html>
-
