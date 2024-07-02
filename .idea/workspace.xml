@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93fc9b6d-a5fc-4278-8fb2-349480a0b9b7" name="Changes" comment="Final">
-      <change afterPath="$PROJECT_DIR$/bboard/static/css/styles.css" afterDir="false" />
+    <list default="true" id="93fc9b6d-a5fc-4278-8fb2-349480a0b9b7" name="Changes" comment="FinalFinal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bboard/bboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bboard/bboard/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bboard/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/bboard/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bboard/templates/bulletindelete.html" beforeDir="false" afterPath="$PROJECT_DIR$/bboard/templates/bulletindelete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bboard/templates/bulletindetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/bboard/templates/bulletindetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bboard/templates/bulletins.html" beforeDir="false" afterPath="$PROJECT_DIR$/bboard/templates/bulletins.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bboard/templates/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/bboard/templates/default.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +34,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/SysAdmin/PycharmProjects/GameBulletinBoard/bboard/static/css"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SysAdmin/PycharmProjects/GameBulletinBoard/bboard/static/css&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\SysAdmin\PycharmProjects\GameBulletinBoard\bboard\static\css" />
@@ -144,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719565920013</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="FinalFinal">
+      <option name="closed" value="true" />
+      <created>1719828611641</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719828611641</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -156,6 +157,7 @@
     <MESSAGE value="ResponsesError" />
     <MESSAGE value="ResponsesFinish" />
     <MESSAGE value="Final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final" />
+    <MESSAGE value="FinalFinal" />
+    <option name="LAST_COMMIT_MESSAGE" value="FinalFinal" />
   </component>
 </project>
