@@ -17,14 +17,14 @@
                    <td style="width: 600px; text-align: center;"> Название </td>
                </tr>
          {% for bulletin in bulletins %}
-                 <tr>
+               <tr>
                      <td style="width: 300px; text-align: left;"> <a href="{% url 'socproject:bulletin' pk=bulletin.id %}">{{ bulletin.author }}</a> </td>
                      <td style="width: 300px; text-align: left;"> <a href="{% url 'socproject:bulletin' pk=bulletin.id %}">{{ bulletin.category }}</a> </td>
                      <td style="width: 600px; text-align: left;"> <a href="{% url 'socproject:bulletin' pk=bulletin.id %}"> {{ bulletin.text|truncatewords:5 }}</a> </td>
                      <td>
                      <a href="{% url 'socproject:bulletinedit' pk=bulletin.id %}">Изменить</a>
                      <a href="{% url 'socproject:bulletindelete' pk=bulletin.id %}">Удалить</a>
-                    </td>
+                     </td>
                 </tr>
          {% endfor %}
            </tbody>

@@ -4,6 +4,7 @@
 {% block content %}
 <h1>Удаление объявления</h1>
     <hr>
+{% if user.author == bulletin_author %}
        <table style="height: 31px; margin-left: auto; margin-right: auto; width: 1800px;">
            <tbody>
                <tr>
@@ -15,4 +16,7 @@
                    </form>
                   </td>
                </tr>
+{% else %}
+<h3>Это не Ваше!</h3>
+{% endif %}
 {% endblock content %}

@@ -3,9 +3,13 @@
 {% block content %}
 <h1>Редактирование объявления</h1>
 <hr>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Сохранить" />
-</form>
+    {% if user.author == bulletin_author %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Сохранить" />
+       </form>
+   {% else %}
+<h3>Это не Ваше!</h3>
+{% endif %}
 {% endblock content %}

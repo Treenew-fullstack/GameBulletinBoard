@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 
 from django.shortcuts import redirect
@@ -18,6 +18,8 @@ class BulletinsListView(ListView):
     ordering = ['title']
 
 
+
+
 class BulletinDetailView(DetailView):
     model = Bulletins
     template_name = 'bulletindetail.html'
@@ -25,6 +27,7 @@ class BulletinDetailView(DetailView):
 
 
 class BulletinCreateView(LoginRequiredMixin, CreateView):
+
     template_name = 'bulletincreate.html'
     form_class = BulletinForm
 
@@ -34,11 +37,21 @@ class BulletinEditView(LoginRequiredMixin, UpdateView):
     model = Bulletins
     template_name = 'bulletinedit.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bulletin_author'] = Bulletins.objects.get(pk=self.kwargs.get('pk')).author
+        return context
+
 
 class BulletinDeleteView(LoginRequiredMixin, DeleteView):
     model = Bulletins
     template_name = 'bulletindelete.html'
     success_url = reverse_lazy('socproject:bulletins')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bulletin_author'] = Bulletins.objects.get(pk=self.kwargs.get('pk')).author
+        return context
 
 
 class ResponsesListView(LoginRequiredMixin, ListView):
