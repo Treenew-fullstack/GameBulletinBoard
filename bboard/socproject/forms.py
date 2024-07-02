@@ -8,7 +8,6 @@ class BulletinForm(forms.ModelForm):
     class Meta:
         model = Bulletins
         fields = [
-            'author',
             'title',
             'category',
             'text',
@@ -22,7 +21,7 @@ class BulletinForm(forms.ModelForm):
 class ResponseForm(forms.ModelForm):
     class Meta:
         model = Responses
-        fields = ['author', 'respbulletins', 'text']
+        fields = ['respbulletins', 'text']
         widgets = {
           'text': forms.Textarea(attrs={'rows': 4, 'cols': 70}),
         }

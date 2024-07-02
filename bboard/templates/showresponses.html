@@ -21,7 +21,10 @@
         {% if resp.author == user %}
             <div>
                 <hr>
+                <hr>
+                <hr>
                 {{ resp }}
+                <br>
                 <br>
                 {% if not resp.status %}
                     <a href="{% url 'socproject:acceptresponse' resp.id %}">

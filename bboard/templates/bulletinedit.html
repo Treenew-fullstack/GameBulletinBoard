@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Редактирование объявления</h1>
 <hr>
-    {% if user.author == bulletin_author %}
+    {% if user == bulletin_author %}
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}

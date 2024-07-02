@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 from django.shortcuts import redirect
@@ -18,8 +18,6 @@ class BulletinsListView(ListView):
     ordering = ['title']
 
 
-
-
 class BulletinDetailView(DetailView):
     model = Bulletins
     template_name = 'bulletindetail.html'
@@ -27,9 +25,14 @@ class BulletinDetailView(DetailView):
 
 
 class BulletinCreateView(LoginRequiredMixin, CreateView):
-
     template_name = 'bulletincreate.html'
     form_class = BulletinForm
+
+    def form_valid(self, form):
+        bulletin = form.save(commit=False)
+        bulletin.author = User.objects.get(id=self.request.user.id)
+        bulletin.save()
+        return redirect('socproject:bulletins')
 
 
 class BulletinEditView(LoginRequiredMixin, UpdateView):
@@ -97,5 +100,6 @@ def acceptresponse(*args, **kwargs):
 
 def rejectresponse(*args, **kwargs):
     response = Responses.objects.get(id=kwargs.get('pk'))
-    response.delete()
+    response.status = False
+    response.save()
     return redirect('socproject:showresponses')
